@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""method that determines if all the boxes can be opened"""
 
 
 def canUnlockAll(boxes):
+    'return boolean'
     if type(boxes) is not list:
         return False
     elif len(boxes) == 0:
