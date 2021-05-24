@@ -7,7 +7,7 @@
  * @grid: tyoe int a sandpile 3 x 3
  * Return: void
  */
-static void p_grid(int grid[3][3])
+static void print_grid(int grid[3][3])
 {
 	int i, j;
 
@@ -45,13 +45,15 @@ static int is_sandpile(int grid[3][3])
 	return (1);
 }
 
+
 /**
  * sum_grids - sum grids grid1 and grid2
  * @grid1: type int a sandpile 3 x 3
  * @grid2: type int a sandpile 3 x 3
  * Return: void
  */
-static void s_grids(int grid1[3][3], int grid2[3][3])
+
+static void sum_grids(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
 
@@ -64,13 +66,15 @@ static void s_grids(int grid1[3][3], int grid2[3][3])
 	}
 }
 
+
 /**
- * topple_over - Move across the grid to operate a sum3
+ * topple - Move across the grid to operate a sum3
  * @grid: type int a sandpile 3 x 3
  * @nextpile: type int temporary grid with the sandpile 3 x 3
  * Return: void
  */
-static void topple_over(int grid[3][3], int nextpile[3][3])
+
+static void topple(int grid[3][3], int nextpile[3][3])
 {
 	int i, j;
 
@@ -101,22 +105,25 @@ static void topple_over(int grid[3][3], int nextpile[3][3])
 	}
 }
 
+
+
 /**
  * sandpiles_sum -sum iteratively two sandpiles
  * @grid1: type int a sandpile 3 x 3
  * @grid2: type int a sandpile 3 x 3
  * Return: void
  */
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 
 	int nextpiles[3][3];
 
-	s_grids(grid1, grid2);
+	sum_grids(grid1, grid2);
 	while (is_sandpile(grid1) == 0)
 	{
-		p_grid(grid1);
-		topple_over(grid1, nextpiles);
-		s_grids(grid1, nextpiles);
+		print_grid(grid1);
+		topple(grid1, nextpiles);
+		sum_grids(grid1, nextpiles);
 	}
 }
